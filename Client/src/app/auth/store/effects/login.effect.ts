@@ -19,19 +19,19 @@ import {
 } from '../actions/register.action'
 
 @Injectable()
-export class RegisterEffect {
-  register$ = createEffect(() =>
+export class LoginEffect {
+  login$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(registerAction),
+      ofType(loginAction),
       switchMap(({ request }) => {
-        return this.authService.register(request).pipe(
+        return this.authService.login(request).pipe(
           map((currentUser: CurrentUserInterface) => {
             this.persistanceService.set('accessToken', currentUser.token)
-            return registerSuccessAction({ currentUser })
+            return loginSuccessAction({ currentUser })
           }),
           catchError((errorResponce: HttpErrorResponse) => {
             return of(
-              registerFailureAction({ errors: errorResponce.error.errors })
+              loginFailureAction({ errors: errorResponce.error.errors })
             )
           })
         )
@@ -42,7 +42,7 @@ export class RegisterEffect {
   redirectAfterSubmit = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(registerSuccessAction),
+        ofType(loginSuccessAction),
         tap(() => {
           this.router.navigateByUrl('/')
         })
