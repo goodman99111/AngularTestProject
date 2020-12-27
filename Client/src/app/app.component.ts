@@ -1,6 +1,8 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core'
+import { Store } from '@ngrx/store'
 import { delay } from 'rxjs/operators'
+import { getCurrentUserAction } from './auth/store/actions/getCurrentUser.action'
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,9 @@ import { delay } from 'rxjs/operators'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(private store: Store) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.store.dispatch(getCurrentUserAction())
+  }
 }
