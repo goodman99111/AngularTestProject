@@ -12,11 +12,6 @@ import {
   loginFailureAction,
   loginSuccessAction,
 } from '../actions/login.action'
-import {
-  registerAction,
-  registerFailureAction,
-  registerSuccessAction,
-} from '../actions/register.action'
 
 @Injectable()
 export class LoginEffect {
