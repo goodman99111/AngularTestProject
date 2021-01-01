@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   authUrl: 'https://conduit.productionready.io/api',
   tokenWhiteListedDomains: ['localhost:44364'],
+  limit: 10
 }
 
 /*

@@ -11,7 +11,7 @@
                 <a [routerLink]="['/profile', article.author.username]">
                     {{article.author.username}}
                 </a> 
-                <span class="date">{{article.createdAt}}</span>
+                <span class="date">{{article.createdAt | date}}</span>
             </div>
             <div class="pull-xs-right">Add to favorite</div>
         </div>
@@ -21,6 +21,11 @@
             HERE THIS LIST TAGS 
         </a>
      </div>
-     PAGINATION 
+     <mc-pagination 
+     [total]="(feed$ | async).articlesCount"
+     [limit]="limit"
+     [url]="baseUrl"
+     [currentPage]="currentPage"
+     ></mc-pagination>
 </div>
 
