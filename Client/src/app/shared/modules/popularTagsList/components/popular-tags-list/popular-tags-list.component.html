@@ -1,0 +1,8 @@
+<mc-loading *ngIf="isLoading$ | async">Loading...</mc-loading>
+
+<div *ngIf="popularTags$ | async" class="sidebar">
+    <p>Popular tags</p>
+    <div class="tag-list">
+        <a class="tag-default tag-pill" *ngFor="let tag of (popularTags$ | async)?.tags">{{tag}}</a>
+    </div>
+</div>

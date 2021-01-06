@@ -13,8 +13,9 @@ import { TopBarModule } from './shared/modules/topBar/topBar.module'
 import { PersistanceService } from './shared/services/persistance.service'
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthInterceptor } from './shared/services/authinterceptor.service'
-import { GlobalFeedModule } from './globalFeed/globalFeed.module';
+import { GlobalFeedModule } from './globalFeed/globalFeed.module'
 import { StoreRouterConnectingModule } from '@ngrx/router-store'
+import { PopularTagsListComponent } from './shared/modules/popularTagsList/components/popular-tags-list/popular-tags-list.component'
 
 @NgModule({
   declarations: [AppComponent],
