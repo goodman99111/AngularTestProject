@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
+import { PopularTagType } from 'src/app/shared/types/populatTagsType.type'
 import { environment } from 'src/environments/environment'
 import { getPopularTagsAction } from '../../store/actions/getPopularTags.action'
 import {
@@ -19,7 +20,7 @@ import { popularTagsStateInterface } from '../../types/popularTagsState.interfac
 export class PopularTagsListComponent implements OnInit {
   apiUrl = environment.authUrl
   isLoading$: Observable<boolean>
-  popularTags$: Observable<getPopularTagsResponceInterface | null>
+  popularTags$: Observable<PopularTagType[] | null>
   errors$: Observable<string | null>
 
   constructor(private store: Store) {}
@@ -30,7 +31,7 @@ export class PopularTagsListComponent implements OnInit {
   }
 
   fetchPopularTags(): void {
-    this.store.dispatch(getPopularTagsAction({ url: this.apiUrl }))
+    this.store.dispatch(getPopularTagsAction())
   }
 
   initializeValues(): void {
