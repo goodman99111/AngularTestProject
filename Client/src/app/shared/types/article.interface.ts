@@ -1,15 +1,15 @@
-import { CurrentUserInterface } from './currentUser.interface'
+import { PopularTagType } from './populatTagsType.type'
 import { ProfileInterface } from './profile.interface'
 
 export interface ArticleInterface {
-  author: ProfileInterface
+  title: string
+  slug: string
   body: string
   createdAt: string
+  updatedAt: string
+  tagList: PopularTagType[]
   description: string
+  author: ProfileInterface
   favorited: boolean
   favoritesCount: number
-  slug: string
-  tagList: string[]
-  title: string
-  updatedAt: string
 }

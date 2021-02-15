@@ -18,6 +18,8 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store'
 import { PopularTagsListComponent } from './shared/modules/popularTagsList/components/popular-tags-list/popular-tags-list.component'
 import { YourFeedModule } from './yourFeed/yourFeed.module'
 import { TagFeedModule } from './tagFeed/tagFeed.module'
+import { ArticleModule } from './article/Articel.module'
+import { CreateArticleModule } from './createArticle/createArticle.module'
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +38,8 @@ import { TagFeedModule } from './tagFeed/tagFeed.module'
     StoreRouterConnectingModule.forRoot(),
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,
+    ArticleModule,
   ],
   providers: [
     PersistanceService,
